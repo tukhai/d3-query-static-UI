@@ -1,0 +1,226 @@
+body {
+				
+}
+#container {
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	height:100%;
+	width:100%;
+}
+.side-bar {
+	height: 100%;
+	width: 30px;
+	background-color: #EEEEEE;
+	float: left;
+	border-right-style: solid;
+	border-right-color: #bdbdbd;
+	border-right-width: 1px;
+}
+.button-side-bar {				
+	height: 80px;
+	background-color: #FAFAFA;
+	border-style: solid;
+	border-color: #FAFAFA;
+}
+.text-button-side-bar {
+	transform: rotate(270deg);
+	font-size: 14px;
+	margin-top: 45px;
+}
+
+.main-page {
+	height: 100%;
+	width: calc(100% - 32px);
+	background-color: red;
+	float: left;
+}
+.top-bar {
+	height: 39px;
+	width: 100%;
+	background-color: #F5F5F5;
+	/*border-bottom-style: solid;
+	border-bottom-color: #939393;
+	border-bottom-width: 1px;*/
+}
+
+
+/*----------TAB-----------*/
+
+.tab-bar {
+  height: 25px; /* tab height */
+  cursor: default;
+  user-select: none; /* disable text selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none; /* disable image drag */
+  margin: 0;
+  padding: 0px 7px;
+}
+.tab {
+  background: #D0D0D0; /* inactive tab background color */
+  opacity: 1; /* inactive tab transparency */
+  width: 140px; /* tab width */
+  margin-left: 1.5px; /* tab overlap */
+  float: left;
+  overflow: hidden;
+  height: 100%;
+  padding: 1px 0;
+  
+  /*border-radius: 3px; tab curves */
+  transform: perspective(100px) rotateX(20deg); /* tab shape angle */
+  box-shadow: 2px -2px 2px -2px black, -2px -2px 2px -2px black; /* tab outline */			  
+  
+  white-space: nowrap;
+  padding-left: 8px; /* icon left side margin */
+  display: block;
+  vertical-align: middle;
+  z-index: -2;  /* inactive tabs are generally in the background */
+}
+.tab:hover {
+  background-color: #D0F5DB;
+}
+.tab-content {
+  padding: 2px 0 0 30px;
+  transform: perspective(100px) rotateX(-20deg); /* untransform tab content (this makes stuff blurry! :( ) */
+  -o-transform: perspective(100px) rotateX(-20deg);
+  -ms-transform: perspective(100px) rotateX(-20deg);
+  -moz-transform: perspective(100px) rotateX(-20deg);
+  -webkit-transform: perspective(100px) rotateX(-20deg);
+  -khtml-transform: perspective(100px) rotateX(-20deg);
+}
+.tab-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+}
+.tab-text {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: arial, sans-serif; /* tab text font */
+  text-rendering: geometricPrecision; /* tab text improve rendering */
+  font-size: 12px; /* tab text size */
+  -webkit-mask-image: linear-gradient(to right, #000, #000, 200px, transparent); /* make text fade at the right edge (webkit only)*/
+  max-width: 170px;
+  overflow: hidden;
+}
+.active-tab {
+  z-index: 1000000; /* active tab is in front of other tabs, but still behind the content box */
+  /*background: linear-gradient(to bottom, #FFFFFF, #F5F5F5);*/ /* active tab color */
+  background-color: #F6F6F6;
+  position: relative;
+  opacity: 1;
+  padding-bottom: 2px;
+}
+.active-tab:hover {
+  opacity: 1;
+}
+
+#content {
+  position: relative;
+  z-index: 2; /* the content box is always in the foreground */
+  width: 100%;
+  height: 4px;
+  background: #F5F5F5;
+  border-radius: 3px;
+  border: 1px solid #aaaaaa;
+  border-width: 1px 0 0 0;
+}
+
+/*-----------TAB----------*/
+
+
+.main-query-and-data {
+	background-color: blue;
+	height:calc(100% - 39px);
+	width:100%;
+}
+.query-area {
+	height:100%;
+	width: 280px;
+	background-color: #FFFFFF;
+	float: left;
+}
+.query-main-box {
+	height: 96%;
+	width: 95%;
+	margin-left: 2%;
+	margin-top: 3%;
+	background-color: #FAFAFA;
+	border-style: solid;
+	border-color: lightgrey;
+	border-width: 1px;
+	
+	position:relative
+}
+.type-selection {
+	height: 25px;
+	color: grey;
+	left: 0;
+	margin-top: 5px;
+	margin-left: 8px;
+}
+.query-selection {
+	margin-top: 5px;
+}
+.query-selection .button-query-selection {
+	height: 25px;
+	width: 33.3%;
+	float: left;
+	background-color: #849199;
+	color: #FFFFFF;
+	text-align: center;
+}
+.query-button {
+	position:absolute;
+	bottom: 0;
+	height: 25px;
+	width: 100%;
+	background-color: #369BE0;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.data-area {
+	height:100%;
+	width: calc(100% - 285px);
+	background-color: #FFFFFF;
+	float: left;
+	
+	border-right-style: solid;
+	border-right-color: #FFFFFF;
+	border-right-width: 5px;
+}
+.space-chart-table {
+	height: 1.5%;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+.table-box {
+	height: 47%;
+	width: 100%;
+	background-color: #FAFAFA;
+	border-style: solid;
+	border-color: lightgrey;
+	border-width: 1px;
+}
+.line-of-table {
+	height: 1px;
+	width: 100%;
+	background-color: lightgrey;
+	margin-top: 25px;
+}
+.chart-box {
+	height: 47%;
+	width: 100%;
+	background-color: #FAFAFA;
+	border-style: solid;
+	border-color: lightgrey;
+	border-width: 1px;
+}
