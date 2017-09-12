@@ -21,9 +21,12 @@ body {
 }
 .button-side-bar {				
 	height: 80px;
-	background-color: #FAFAFA;
 	border-style: solid;
 	border-color: #FAFAFA;
+	border-width: 0.1px;
+}
+.switch-button-side-bar {
+	background-color: #FAFAFA;
 }
 .text-button-side-bar {
 	transform: rotate(270deg);
@@ -34,7 +37,6 @@ body {
 .main-page {
 	height: 100%;
 	width: calc(100% - 32px);
-	background-color: red;
 	float: left;
 }
 .top-bar {
@@ -52,13 +54,13 @@ body {
 .tab-bar {
   height: 25px; /* tab height */
   cursor: default;
-  user-select: none; /* disable text selection */
+  /*user-select: none;*/ /* disable text selection */
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  pointer-events: none; /* disable image drag */
+  /*pointer-events: none;*/ /* disable image drag */
   margin: 0;
   padding: 0px 7px;
 }
@@ -82,9 +84,7 @@ body {
   vertical-align: middle;
   z-index: -2;  /* inactive tabs are generally in the background */
 }
-.tab:hover {
-  background-color: #D0F5DB;
-}
+
 .tab-content {
   padding: 2px 0 0 30px;
   transform: perspective(100px) rotateX(-20deg); /* untransform tab content (this makes stuff blurry! :( ) */
@@ -135,6 +135,11 @@ body {
 
 /*-----------TAB----------*/
 
+.blank-page {
+	margin-top: 45vh;
+	text-align: center;
+	color: grey;
+}
 
 .main-query-and-data {
 	background-color: blue;
@@ -216,6 +221,11 @@ body {
 	background-color: lightgrey;
 	margin-top: 25px;
 }
+.table-content {
+	text-align: center;
+	color: grey;
+	margin-top: 5px;
+}
 .chart-box {
 	height: 47%;
 	width: 100%;
@@ -223,4 +233,44 @@ body {
 	border-style: solid;
 	border-color: lightgrey;
 	border-width: 1px;
+	/*position: relative;*/
+}
+
+#d3-lines {
+	width: 100%;
+	height: 100%;
+}
+
+#tooltip {
+	position: absolute;
+	display: block;
+	background: grey;
+	border: #555;
+	padding: 1px;
+	pointer-events: none;
+}
+
+#tooltip .column {
+	padding: 5px;
+	display: inline-block;
+	font-weight: bold;
+	color: white;
+}
+
+#tooltip .row {
+	background: white;
+	border-bottom: 1px solid grey;
+}
+#tooltip .row:last-child {
+	border-bottom: none;
+}
+
+#tooltip .row span {
+	display: inline-block;
+	margin: 5px;
+}
+#tooltip .row .color-square {
+	width: 12px;
+	height: 12px;
+	margin-bottom: 0;
 }

@@ -10,42 +10,53 @@
 		
 	</head>
 	<body data-ng-app="d3App">
-		<div id="container">
-			<div class="side-bar">
-				<div class="button-side-bar"><div class="text-button-side-bar">Level&nbsp;1&#8722;1</div></div>
-				<div class="button-side-bar"><div class="text-button-side-bar">Level&nbsp;1&#8722;2</div></div>
-				<div class="button-side-bar"><div class="text-button-side-bar">Level&nbsp;1&#8722;3</div></div>
+		<div id="container" data-ng-controller="d3Controller as ctrl">
+			<div class="side-bar" ng-init='side=1'>
+				<div class="button-side-bar" ng-class='{"switch-button-side-bar":side==1}' ng-click='side=1'>
+					<div class="text-button-side-bar">Level&nbsp;1&#8722;1</div>
+				</div>
+				<div class="button-side-bar" ng-class='{"switch-button-side-bar":side==2}' ng-click='side=2'>
+					<div class="text-button-side-bar">Level&nbsp;1&#8722;2</div>
+				</div>
+				<div class="button-side-bar" ng-class='{"switch-button-side-bar":side==3}' ng-click='side=3'>
+					<div class="text-button-side-bar">Level&nbsp;1&#8722;3</div>
+				</div>
 			</div>			
 			
 			<div class="main-page">
 				<div class="top-bar">
-					<ul class="tab-bar" style="padding-top: 10px; padding-left: 15px;">
-						<li class="tab">
+					<div class="tab-bar" style="padding-top: 10px; padding-left: 15px;" ng-init='tog=2;'>
+						<div class="tab" ng-class='{"active-tab":tog==1}' ng-click='tog=1; changeView("explore");'>
 							<div class="tab-content">
 							  <!-- Move the close-Button to the beginning -->
 							  <span class="tab-text"><i class="fa fa-compass" aria-hidden="true"></i> Explore</span>
 							</div>
-						</li>						  
-						<li class="tab active-tab">
+						</div>						  
+						<div class="tab" ng-class='{"active-tab":tog==2}' ng-click='tog=2; changeView("query");'>
 							<div class="tab-content">				  
 							  <span class="tab-text"><i class="fa fa-search" aria-hidden="true"></i> Query</span>
 							</div>
-						</li>						
-						<li class="tab">
+						</div>						
+						<div class="tab" ng-class='{"active-tab":tog==3}' ng-click='tog=3; changeView("compare");'>
 							<div class="tab-content">				  
 							  <span class="tab-text"><i class="fa fa-bar-chart" aria-hidden="true"></i> Compare</span>
 							</div>
-						</li>						
-						<li class="tab">
+						</div>						
+						<div class="tab" ng-class='{"active-tab":tog==4}' ng-click='tog=4; changeView("upload");'>
 							<div class="tab-content">				  
 							  <span class="tab-text"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload</span>
 							</div>
-						</li>					  
-					</ul>
+						</div>					  
+					</div>
 					<div id="content"></div>
-				</div>								
+				</div>
+
+
+				<div class="blank-page" ng-show="showExplore">
+					Blank Explore Page
+				</div>
 				
-				<div class="main-query-and-data">
+				<div class="main-query-and-data" ng-show="showQuery">
 					<div class="query-area">
 						<div class="query-main-box">
 							<div class="type-selection">
@@ -64,7 +75,7 @@
 								<div class="button-query-selection"><div style="margin-top: 5px;"><i class="fa fa-trash-o" aria-hidden="true"></i> Clear</div></div>
 							</div>
 							
-							<div class="query-button">
+							<div class="query-button" ng-click="reloadController()">
 								<div style="margin-top: 1%;">Query</div>
 							</div>
 						</div>
@@ -73,16 +84,25 @@
 						<div class="space-chart-table"></div>
 						<div class="table-box">
 							<div class="line-of-table"></div>
-							<div data-ng-controller="d3Controller as ctrl">
-									<span ng-show='title'>{{title}}</span>
-									<d3-lines></d3-lines>
+							<div class="table-content">
+								<span ng-show='title'>{{title}}</span>
 							</div>
 						</div>
 						<div class="space-chart-table"></div>
 						<div class="chart-box">
-						
+							<d3-lines id='d3-lines'>
+							</d3-lines>
+							<div id='tooltip'></div>
 						</div>
 					</div>
+				</div>
+				
+				<div class="blank-page" ng-show="showCompare">
+					Blank Compare Page
+				</div>
+				
+				<div class="blank-page" ng-show="showUpload">
+					Blank Upload Page
 				</div>
 			</div>
 		</div>
@@ -91,7 +111,7 @@
 		<script type="text/javascript" src="js/app.js" ></script>
 		<script type="text/javascript" src="js/d3.js" ></script>
 		<script type="text/javascript" src="js/controllers/controller.js" ></script>
-		<script type="text/javascript" src="js/directive/directive.js" ></script>
+		<script type="text/javascript" src="js/directive/directive.js" ></script>		
 		
 	</body>
 </html>
